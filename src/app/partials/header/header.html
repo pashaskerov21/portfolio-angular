@@ -2,7 +2,10 @@
     <nav class="general-nav">
         <div class="container">
             <div class="inner">
-                <a routerLink="">
+                <a routerLink="" class="d-sm-none">
+                    <app-logo firstName="&lt;A/&gt;" lastName=""></app-logo>
+                </a>
+                <a routerLink="" class="d-none d-sm-block">
                     <app-logo firstName="ALIPASHA" lastName=""></app-logo>
                 </a>
                 <ul class="links-wrapper desktop d-none d-lg-flex">
@@ -11,7 +14,9 @@
                     </li>
                 </ul>
                 <div class="right">
-                    <a href="https://alipashaskerov.vercel.app/" class="version-link">Next JS</a>
+                    <a href="https://alipashaskerov.vercel.app/" class="link-btn">Next JS</a>
+                    <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
+                        aria-label="Alipasha Askerov CV">CV</a>
                     <button class="theme-button" (click)="toggleTheme()" aria-label="Theme toggle button" type="button">
                         <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
                         <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
@@ -26,21 +31,37 @@
             </div>
         </div>
     </nav>
-    <div class="mobile-menu d-lg-none" 
-    [class.active]="menuState==='half'" 
-    [class.full-height]="menuState==='full'"
-    [class.hide]="menuState==='closed'" 
-    (touchstart)="onDragStart($event)" 
-    (touchmove)="onDragMove($event)"
-    (touchend)="onDragEnd($event)" >
+    <div class="mobile-menu d-lg-none" [class.active]="menuState==='half'" [class.full-height]="menuState==='full'"
+        [class.hide]="menuState==='closed'" (touchstart)="onDragStart($event)" (touchmove)="onDragMove($event)"
+        (touchend)="onDragEnd($event)">
         <div class="drag-indigator"></div>
         <div class="menu-inner">
-            <ul class="links-wrapper mobile">
-                <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
-                    <a [href]="'#'+item.name" class="menu-link">{{item.name}}</a>
-                </li>
-            </ul>
-            <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
+            <div class="inner-top">
+                <ul class="links-wrapper mobile">
+                    <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
+                        <a [href]="'#'+item.name" class="menu-link" (click)="toggleMenu()">{{item.name}}</a>
+                    </li>
+                </ul>
+                <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
+            </div>
+            <div class="inner-bottom">
+                <a routerLink="" class="d-sm-none">
+                    <app-logo firstName="&lt;A/&gt;" lastName="" color="#fff"></app-logo>
+                </a>
+                <a routerLink="" class="d-none d-sm-block">
+                    <app-logo firstName="ALIPASHA" lastName="" color="#fff"></app-logo>
+                </a>
+                <div class="right">
+                    <a href="https://alipashaskerov.vercel.app/" class="link-btn">Next JS</a>
+                    <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
+                        aria-label="Alipasha Askerov CV">CV</a>
+                    <button class="theme-button" (click)="toggleTheme();toggleMenu()" aria-label="Theme toggle button"
+                        type="button">
+                        <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
+                        <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </header>

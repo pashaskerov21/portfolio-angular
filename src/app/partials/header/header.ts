@@ -4,7 +4,7 @@ import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ApiService } from '../../api/api';
-import { MenuDataType } from '../../../types';
+import { MenuDataType, PersonalInformationDataType } from '../../../types';
 import { SocialIcons } from "../../components/social-icons/social-icons";
 
 @Component({
@@ -16,11 +16,13 @@ import { SocialIcons } from "../../components/social-icons/social-icons";
 export class Header implements OnInit {
 
   menuData: MenuDataType[] = [];
+  personalData: PersonalInformationDataType | null = null;
   constructor(private themeService: ThemeService, private apiService: ApiService, private el: ElementRef) { }
 
   ngOnInit(): void {
-    // menu datalarin sehife yuklenende fetch edilmesi
+    // datalarin sehife yuklenende fetch edilmesi
     this.loadMenu(); 
+    this.loadInformation();
   }
   // tema deyisilmesi
   toggleTheme() {
@@ -40,6 +42,18 @@ export class Header implements OnInit {
       error: (err) => {
         console.log('Menu fetch failed', err);
         this.menuData = [];
+      }
+    })
+  }
+  // personal datanin fetch edilmesi funksiyasi
+  loadInformation() {
+    this.apiService.getInformation().subscribe({
+      next: (data) => {
+        this.personalData = data || null
+      },
+      error: (err) => {
+        console.log('Information fetch failed', err);
+        this.personalData = null;
       }
     })
   }

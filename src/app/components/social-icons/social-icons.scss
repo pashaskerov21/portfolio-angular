@@ -43,7 +43,6 @@
     }
 
     &.menu-icons {
-        margin-top: 20px;
         @include flex(row, center, center);
         gap: 20px;
 
