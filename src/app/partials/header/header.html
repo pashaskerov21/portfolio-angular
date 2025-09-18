@@ -1,0 +1,46 @@
+<header>
+    <nav class="general-nav">
+        <div class="container">
+            <div class="inner">
+                <a routerLink="">
+                    <app-logo firstName="ALIPASHA" lastName=""></app-logo>
+                </a>
+                <ul class="links-wrapper desktop d-none d-lg-flex">
+                    <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
+                        <a [href]="'#'+item.name">{{item.name}}</a>
+                    </li>
+                </ul>
+                <div class="right">
+                    <a href="https://alipashaskerov.vercel.app/" class="version-link">Next JS</a>
+                    <button class="theme-button" (click)="toggleTheme()" aria-label="Theme toggle button" type="button">
+                        <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
+                        <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
+                    </button>
+                    <button class="menu-button d-lg-none" (click)="toggleMenu()" [class.active]="menuState !== 'closed'"
+                        aria-label="Mobile Menu toggle button" type="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu d-lg-none" 
+    [class.active]="menuState==='half'" 
+    [class.full-height]="menuState==='full'"
+    [class.hide]="menuState==='closed'" 
+    (touchstart)="onDragStart($event)" 
+    (touchmove)="onDragMove($event)"
+    (touchend)="onDragEnd($event)" >
+        <div class="drag-indigator"></div>
+        <div class="menu-inner">
+            <ul class="links-wrapper mobile">
+                <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
+                    <a [href]="'#'+item.name" class="menu-link">{{item.name}}</a>
+                </li>
+            </ul>
+            <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
+        </div>
+    </div>
+</header>

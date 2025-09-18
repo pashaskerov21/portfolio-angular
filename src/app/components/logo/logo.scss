@@ -1,0 +1,59 @@
+@use '../../scss/utils' as *;
+@use '../../scss/variables' as *;
+
+.logo-wrapper {
+    // font-family: 'Kalam', cursive;
+    font-family: monospace;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    color: $primary-color;
+    position: relative;
+    transition: all 0.2s;
+    span{
+        display: inline-block;
+        transition: all 0.3s;
+        margin-right: 1px;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 28px;
+        line-height: 28px;
+        gap: 15px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    &:hover{
+        span{
+            animation: logoAnimation 0.4s ease forwards;
+        }
+    }
+    &.infinite {
+        span{
+            animation: logoAnimation 0.4s ease infinite;
+        }
+    }
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

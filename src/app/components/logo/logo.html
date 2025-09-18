@@ -1,0 +1,12 @@
+<div class="logo-wrapper" [style.color]="color" [class.infinite]="infinite">
+    <div *ngIf="firstName">
+        <span *ngFor="let letter of getFirstNameLetters(); let i = index" [style.animation-delay]="(i*animationDelay)+'s'">
+            {{letter}}
+        </span>
+    </div>
+    <div *ngIf="lastName">
+        <span *ngFor="let letter of getLastNameLetters(); let i = index"  [style.animation-delay]="(((getFirstNameLetters().length || 0) * animationDelay) + (i * animationDelay)) + 's'">
+            {{letter}}
+        </span>
+    </div>
+</div>
