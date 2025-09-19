@@ -1,1 +1,26 @@
-<p>banner works!</p>
+<section class="banner-section" aria-labelledby="banner-title">
+    <div class="container">
+        <div class="banner-wrapper">
+            <div class="content">
+                <h1 class="title" id="banner-title">{{personalData?.home?.title}}</h1>
+                <h2 class="subtitle" data-title="{{personalData?.home?.animationTitle}}">
+                    {{personalData?.home?.animationTitle}}
+                </h2>
+                <ul class="versions">
+                    <li>
+                        <a href="">Next JS</a>
+                    </li>
+                    <li>
+                        <a href="" class="active">Angular</a>
+                    </li>
+                    <li>
+                        <a href="">Vue JS</a>
+                    </li>
+                </ul>
+            </div>
+            <figure class="content-img">
+                <img src="/design/angular-logo.png" alt="Alipasha Askerov - Portfolio Angular">
+            </figure>
+        </div>
+    </div>
+</section>

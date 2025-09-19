@@ -1,0 +1,7 @@
+<button type="button" class="scroll-button" aria-label="Scroll top button" [class.visible]="visible"
+    [style.background]="'conic-gradient(#B52E31 ' + (scrollValue + 2) + '%, #fff ' + (scrollValue + 2) + '%)'"
+    (click)="scrollToTop()">
+    <span class="progress-value" [class.active]="scrollValue===100">
+        <i class="fa-solid fa-arrow-up"></i>
+    </span>
+</button>

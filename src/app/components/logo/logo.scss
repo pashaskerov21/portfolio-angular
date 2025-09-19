@@ -18,6 +18,8 @@
         display: inline-block;
         transition: all 0.3s;
         margin-right: 1px;
+        opacity: 0;
+        animation: spanRenderAnimation 0.3s ease forwards;
     }
 
     @media (min-width: 768px) {
@@ -33,16 +35,28 @@
 
     &:hover{
         span{
+            opacity: 1;
             animation: logoAnimation 0.4s ease forwards;
         }
     }
     &.infinite {
         span{
+            opacity: 1;
             animation: logoAnimation 0.4s ease infinite;
         }
     }
 }
 
+@keyframes spanRenderAnimation{
+    0%{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 @keyframes logoAnimation {
     0% {
         transform: translateY(0);

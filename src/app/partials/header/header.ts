@@ -100,4 +100,16 @@ export class Header implements OnInit {
     }
   }
 
+  //headerin fixed olmasi
+  fixedTop = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.scrollY > 400) {
+      this.fixedTop = true;
+    } else {
+      this.fixedTop = false;
+    }
+  }
+
 }

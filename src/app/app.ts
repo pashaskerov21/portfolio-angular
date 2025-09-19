@@ -8,12 +8,13 @@ import { ThemeService } from './theme.service';
 import { PersonalInformationDataType } from '../types';
 import { Meta, Title } from '@angular/platform-browser';
 import { SocialIcons } from "./components/social-icons/social-icons";
+import { ScrollButton } from "./components/scroll-button/scroll-button";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons],
+  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons, ScrollButton],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

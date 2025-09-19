@@ -7,7 +7,7 @@ header {
 
     .general-nav {
         width: 100%;
-        background-color: light-dark($bg-color-light, $bg-color-dark);
+        
 
         .inner {
             width: 100%;
@@ -15,13 +15,17 @@ header {
             gap: 20px;
             padding: 15px 0;
         }
-
         &.fixed {
             position: fixed;
-            top: 0;
+            top: 10px;
             left: 0;
             z-index: 9999;
             animation: fixNav 0.3s ease forwards;
+            .container{
+                border-radius: 10px;
+                box-shadow: 0 0 5px light-dark($bg-color-dark, $bg-color-light);
+                background-color: light-dark($bg-color-light, $bg-color-dark);
+            }
         }
 
         .right {
@@ -116,7 +120,7 @@ header {
         li {
             opacity: 0;
             transform: translateY(-15px);
-            animation: linkAnimation 0.5s ease forwards;
+            animation: topToBottom 0.5s ease forwards;
         }
 
         a {
@@ -197,6 +201,43 @@ header {
     }
 }
 
+.versions {
+    width: 100%;
+    @include flex(row, center, center);
+    gap: 10px;
+
+    li {
+        width: 100%;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    a {
+        width: 100%;
+        @include flex(row, center, center);
+        border: 1px solid #fff;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 12px;
+
+        @media (min-width: 350px) {
+            font-size: 16px;
+        }
+
+        &.active {
+            background-color: #fff;
+            color: $primary-color;
+        }
+
+        &:hover {
+            animation: pulseWhite 1s ease infinite;
+        }
+    }
+}
+
+
 .mobile-menu {
     position: fixed;
     bottom: 0;
@@ -205,7 +246,7 @@ header {
     height: 100vh;
     background-color: $primary-color;
     z-index: 9999;
-    border-radius: 40px;
+    border-radius: 40px 40px 0 0;
     transform: translateY(100%);
     transition: all 0.5s;
     padding: 10px;
@@ -217,32 +258,6 @@ header {
         border-radius: 10px;
         background-color: #fff;
     }
-
-    &.active {
-        transform: translateY(35%);
-
-        .links-wrapper.mobile {
-            li {
-                animation: linkAnimation 0.5s ease forwards;
-            }
-        }
-
-    }
-
-    &.full-height {
-        transform: translateY(0);
-
-        .links-wrapper.mobile {
-            li {
-                animation: linkAnimation 0.5s ease forwards;
-            }
-        }
-    }
-
-    &.hide {
-        transform: translateY(100%);
-    }
-
     .menu-inner {
         width: 100%;
         height: 100%;
@@ -255,11 +270,19 @@ header {
             gap: 30px;
         }
 
-        .inner-bottom {
+        .menu-footer {
             align-self: flex-end;
             width: 100%;
-            @include flex(row, space-between, center);
+            @include flex(column, center, center);
             gap: 20px;
+
+            .footer-row {
+                width: 100%;
+                @include flex(row, space-between, center);
+                gap: 20px;
+                opacity: 0;
+                transform: translateY(15px);
+            }
 
             .right {
                 @include flex(row, flex-end, center);
@@ -280,40 +303,53 @@ header {
             }
         }
     }
-}
-.version-wrapper{
-    width: 100%;
-    @include flex(column,center,center);
-    gap: 20px;
-    .title{
-        font-size: 20px;
-        font-weight: 600;
-        color: #fff;
-    }
-    .versions{
-        width: 100%;
-        max-width: 400px;
-        @include flex(row,space-between,center);
-        gap: 10px;
-        li{
-            width: 100%;
-            @include flex(row,center,center);
-            border: 1px solid #fff;
-            padding: 10px;
-            border-radius: 10px;
-            a{
-                color: #fff;
-                font-weight: 600;
+    &.active {
+        transform: translateY(45%);
+
+        .links-wrapper.mobile {
+            li {
+                animation: topToBottom 0.5s ease forwards;
             }
-            &.active{
-                background-color: #fff;
-                a{
-                    color: $primary-color;
+        }
+
+    }
+
+    &.full-height {
+        transform: translateY(0);
+
+        .links-wrapper.mobile {
+            li {
+                animation: topToBottom 0.5s ease forwards;
+            }
+        }
+
+        .footer-row {
+            animation: bottomToTop 0.5s ease 0.4s forwards;
+        }
+
+        .versions {
+            li {
+                &:nth-child(1) {
+                    animation: bottomToTop 0.5s ease 0.6s forwards;
+                }
+
+                &:nth-child(2) {
+                    animation: bottomToTop 0.5s ease 0.8s forwards;
+                }
+
+                &:nth-child(3) {
+                    animation: bottomToTop 0.5s ease 1s forwards;
                 }
             }
         }
     }
+
+    &.hide {
+        transform: translateY(100%);
+    }
 }
+
+
 
 @keyframes fixNav {
     0% {
@@ -327,10 +363,22 @@ header {
     }
 }
 
-@keyframes linkAnimation {
+@keyframes topToBottom {
     0% {
         opacity: 0;
         transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
     100% {

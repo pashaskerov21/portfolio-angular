@@ -1,5 +1,5 @@
 <header>
-    <nav class="general-nav">
+    <nav class="general-nav" [class.fixed]="fixedTop">
         <div class="container">
             <div class="inner">
                 <a routerLink="">
@@ -39,34 +39,34 @@
                     </li>
                 </ul>
                 <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
-                <div class="version-wrapper">
-                    <h3 class="title">VERSION</h3>
-                    <ul class="versions">
-                        <li>
-                            <a href="">Next JS</a>
-                        </li>
-                        <li class="active">
-                            <a href="">Angular</a>
-                        </li>
-                        <li>
-                            <a href="">Vue JS</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
-            <div class="inner-bottom">
-                <a routerLink="">
-                    <app-logo firstName="ALIPASHA" lastName="" color="#fff"></app-logo>
-                </a>
-                <div class="right">
-                    <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
-                        aria-label="Alipasha Askerov CV">CV</a>
-                    <button class="theme-button" (click)="toggleTheme();toggleMenu()" aria-label="Theme toggle button"
-                        type="button">
-                        <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
-                        <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
-                    </button>
+            <div class="menu-footer">
+                <div class="footer-row">
+                    <a routerLink="">
+                        <app-logo firstName="ALIPASHA" lastName="" color="#fff"></app-logo>
+                    </a>
+                    <div class="right">
+                        <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
+                            aria-label="Alipasha Askerov CV">CV</a>
+                        <button class="theme-button" (click)="toggleTheme();toggleMenu()"
+                            aria-label="Theme toggle button" type="button">
+                            <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
+                            <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
                 </div>
+                <ul class="versions">
+                    <li>
+                        <a href="">Next JS</a>
+                    </li>
+                    <li>
+                        <a href="" class="active">Angular</a>
+                    </li>
+                    <li>
+                        <a href="">Vue JS</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
