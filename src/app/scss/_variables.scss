@@ -6,6 +6,9 @@ $text-color-dark-mute: #A39FA9;
 $text-color-light: #151417;
 $text-color-light-mute: #746E7C;
 
+$primary-font: "Fira Code", monospace;
+$secondary-font: 'Montserrat', sans-serif;
+
 // black white level
 $black-1: rgba(0, 0, 0, 0.1);
 $black-2: rgba(0, 0, 0, 0.2);
@@ -31,20 +34,25 @@ $white-9: rgba(255, 255, 255, 0.9);
     0% {
         box-shadow: 0 0 0 0 $primary-color
     }
+
     80% {
         box-shadow: 0 0 0 10px hsla(0, 100%, 76%, 0)
     }
+
     to {
         box-shadow: 0 0 0 0 hsla(0, 100%, 76%, 0)
     }
 }
+
 @keyframes pulseWhite {
     0% {
         box-shadow: 0 0 0 0 #ffffff;
     }
+
     80% {
         box-shadow: 0 0 0 10px hsla(0, 100%, 76%, 0)
     }
+
     to {
         box-shadow: 0 0 0 0 hsla(0, 100%, 76%, 0)
     }

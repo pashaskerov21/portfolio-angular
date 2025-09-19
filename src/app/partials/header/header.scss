@@ -219,7 +219,7 @@ header {
     }
 
     &.active {
-        transform: translateY(50%);
+        transform: translateY(35%);
 
         .links-wrapper.mobile {
             li {
@@ -281,7 +281,39 @@ header {
         }
     }
 }
-
+.version-wrapper{
+    width: 100%;
+    @include flex(column,center,center);
+    gap: 20px;
+    .title{
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+    }
+    .versions{
+        width: 100%;
+        max-width: 400px;
+        @include flex(row,space-between,center);
+        gap: 10px;
+        li{
+            width: 100%;
+            @include flex(row,center,center);
+            border: 1px solid #fff;
+            padding: 10px;
+            border-radius: 10px;
+            a{
+                color: #fff;
+                font-weight: 600;
+            }
+            &.active{
+                background-color: #fff;
+                a{
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
 
 @keyframes fixNav {
     0% {

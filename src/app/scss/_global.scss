@@ -26,7 +26,7 @@ app-root {
     .fix-icons-wrapper {
         position: fixed;
         right: 10px;
-        bottom: 110px;
+        bottom: 80px;
     }
 }
 
@@ -47,7 +47,7 @@ body {
     width: 100%;
 
     font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $secondary-font;
     scroll-behavior: smooth;
     background-color: light-dark($bg-color-light, $bg-color-dark);
     color: light-dark($text-color-light, $text-color-dark);
@@ -135,4 +135,31 @@ input {
 main {
     width: 100%;
 }
+section{
+    width: 100%;
+}
+.section-title {
+    text-transform: capitalize;
+    font-size: 28px;
+    user-select: none;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: $primary-font;
 
+    @media (min-width: 768px) {
+        font-size: 32px
+    }
+
+    @media (min-width: 992px) {
+        font-size: 36px
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 40px
+    }
+
+    @media (min-width: 1400px) {
+        font-size: 44px;
+    }
+}

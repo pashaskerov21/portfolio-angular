@@ -2,8 +2,7 @@
 @use '../../scss/variables' as *;
 
 .logo-wrapper {
-    // font-family: 'Kalam', cursive;
-    font-family: monospace;
+    font-family: $primary-font;
     font-size: 24px;
     line-height: 24px;
     font-weight: 600;

@@ -2,10 +2,7 @@
     <nav class="general-nav">
         <div class="container">
             <div class="inner">
-                <a routerLink="" class="d-sm-none">
-                    <app-logo firstName="&lt;A/&gt;" lastName=""></app-logo>
-                </a>
-                <a routerLink="" class="d-none d-sm-block">
+                <a routerLink="">
                     <app-logo firstName="ALIPASHA" lastName=""></app-logo>
                 </a>
                 <ul class="links-wrapper desktop d-none d-lg-flex">
@@ -14,7 +11,6 @@
                     </li>
                 </ul>
                 <div class="right">
-                    <a href="https://alipashaskerov.vercel.app/" class="link-btn">Next JS</a>
                     <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
                         aria-label="Alipasha Askerov CV">CV</a>
                     <button class="theme-button" (click)="toggleTheme()" aria-label="Theme toggle button" type="button">
@@ -43,16 +39,26 @@
                     </li>
                 </ul>
                 <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
+                <div class="version-wrapper">
+                    <h3 class="title">VERSION</h3>
+                    <ul class="versions">
+                        <li>
+                            <a href="">Next JS</a>
+                        </li>
+                        <li class="active">
+                            <a href="">Angular</a>
+                        </li>
+                        <li>
+                            <a href="">Vue JS</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="inner-bottom">
-                <a routerLink="" class="d-sm-none">
-                    <app-logo firstName="&lt;A/&gt;" lastName="" color="#fff"></app-logo>
-                </a>
-                <a routerLink="" class="d-none d-sm-block">
+                <a routerLink="">
                     <app-logo firstName="ALIPASHA" lastName="" color="#fff"></app-logo>
                 </a>
                 <div class="right">
-                    <a href="https://alipashaskerov.vercel.app/" class="link-btn">Next JS</a>
                     <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
                         aria-label="Alipasha Askerov CV">CV</a>
                     <button class="theme-button" (click)="toggleTheme();toggleMenu()" aria-label="Theme toggle button"
