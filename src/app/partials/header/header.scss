@@ -7,7 +7,7 @@ header {
 
     .general-nav {
         width: 100%;
-        
+        background-color: light-dark($bg-color-light, $bg-color-dark);
 
         .inner {
             width: 100%;
@@ -17,21 +17,20 @@ header {
         }
         &.fixed {
             position: fixed;
-            top: 10px;
+            top: 0;
             left: 0;
             z-index: 9999;
             animation: fixNav 0.3s ease forwards;
-            .container{
-                border-radius: 10px;
-                box-shadow: 0 0 5px light-dark($bg-color-dark, $bg-color-light);
-                background-color: light-dark($bg-color-light, $bg-color-dark);
-            }
         }
 
         .right {
             @include flex(row, flex-end, center);
             gap: 5px;
         }
+    }
+    .header-progress{
+        height: 3px;
+        background-color: $primary-color;
     }
 }
 

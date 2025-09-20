@@ -77,6 +77,33 @@
             }
         }
     }
+    &.about-icons{
+        @include flex(row,center,center);
+        gap: 10px;
+        &:hover{
+            a{
+                opacity: 0.4;
+            }
+        }
+        a{
+            @include flex(row,center,center);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            position: relative;
+            font-size: 18px;
+            transition: all 0.3s;
+            &:hover{
+                background-color: $primary-color;
+                color: #fff;
+                opacity: 1 !important;
+                animation: pulsePrimary 1s ease infinite
+            }
+        }
+        
+    }
 }
 
 @keyframes iconAnimation {

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonalInformationDataType } from '../../../types';
 import { ApiService } from '../../api/api';
+import { Counter } from "../../components/counter/counter";
+import { SocialIcons } from "../../components/social-icons/social-icons";
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [Counter, SocialIcons],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })

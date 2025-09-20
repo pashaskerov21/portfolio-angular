@@ -26,7 +26,9 @@
                 </div>
             </div>
         </div>
+        <div class="header-progress" *ngIf="fixedTop" [style.width]="scrollValue+'%'"></div>
     </nav>
+    
     <div class="mobile-menu d-lg-none" [class.active]="menuState==='half'" [class.full-height]="menuState==='full'"
         [class.hide]="menuState==='closed'" (touchstart)="onDragStart($event)" (touchmove)="onDragMove($event)"
         (touchend)="onDragEnd($event)">

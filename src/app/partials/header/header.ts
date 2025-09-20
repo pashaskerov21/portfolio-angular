@@ -21,7 +21,7 @@ export class Header implements OnInit {
 
   ngOnInit(): void {
     // datalarin sehife yuklenende fetch edilmesi
-    this.loadMenu(); 
+    this.loadMenu();
     this.loadInformation();
   }
   // tema deyisilmesi
@@ -76,8 +76,8 @@ export class Header implements OnInit {
     this.currentY = this.getY(event);
     const diff = this.startY - this.currentY;
 
-    if (diff > 50) this.menuState = 'full';   
-    if (diff < -50) this.menuState = 'closed'; 
+    if (diff > 50) this.menuState = 'full';
+    if (diff < -50) this.menuState = 'closed';
   }
   onDragEnd(event: TouchEvent | MouseEvent) {
     this.dragging = false;
@@ -92,9 +92,9 @@ export class Header implements OnInit {
     const button = this.el.nativeElement.querySelector('.menu-button');
 
     if (
-      this.menuState !== 'closed' &&         
-      menu && !menu.contains(event.target as Node) && 
-      button && !button.contains(event.target as Node) 
+      this.menuState !== 'closed' &&
+      menu && !menu.contains(event.target as Node) &&
+      button && !button.contains(event.target as Node)
     ) {
       this.menuState = 'closed';
     }
@@ -102,14 +102,17 @@ export class Header implements OnInit {
 
   //headerin fixed olmasi
   fixedTop = false;
+  scrollValue = 0;
+  visible = false;
 
   @HostListener('window:scroll', [])
+  @HostListener('window:load', [])
   onWindowScroll() {
-    if (window.scrollY > 400) {
-      this.fixedTop = true;
-    } else {
-      this.fixedTop = false;
-    }
+    const pos = document.documentElement.scrollTop;
+    const calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    this.scrollValue = Math.round((pos * 100) / calcHeight);
+
+    this.fixedTop = pos > 100;
   }
 
 }

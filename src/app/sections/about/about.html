@@ -22,6 +22,18 @@
                         Let's build something great together — feel free to reach out and connect!
                     </p>
                 </article>
+                <ul class="reports">
+                    <li>
+                        <app-counter [value]="2" title="experience" [speed]="700"></app-counter>
+                    </li>
+                    <li>
+                        <app-counter [value]="25" title="projects" [speed]="100"></app-counter>
+                    </li>
+                </ul>
+                <div class="about-content-items">
+                    <a href="{{personalData?.cv}}" target="_blank" rel="noopener noreferrer" class="cv-button">Review CV</a>
+                    <app-social-icons className="about-icons"></app-social-icons>
+                </div>
             </div>
         </div>
     </div>

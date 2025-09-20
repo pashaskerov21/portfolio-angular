@@ -1,0 +1,30 @@
+@use '../../scss/utils' as *;
+@use '../../scss/variables' as *;
+
+.counter-item {
+    @include flex(column, center, center);
+    gap: 10px;
+
+    @media (min-width: 992px) {
+        align-items: flex-start;
+    }
+
+    .counter-value {
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: 600;
+        color: $primary-color;
+
+        @media (min-width: 768px) {
+            font-size: 30px;
+            line-height: 36px;
+        }
+    }
+
+    .counter-title {
+        font-size: 18px;
+        line-height: 24px;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+}
