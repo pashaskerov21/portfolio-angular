@@ -127,15 +127,36 @@
             }
         }
     }
-    .content-img{
+
+    .content-img {
         width: 100%;
         max-width: 200px;
-        @media (min-width: 992px){
+
+        @media (min-width: 992px) {
             max-width: 400px;
         }
-        img{
+
+        img {
             width: 100%;
             object-fit: contain;
+        }
+    }
+
+    .swiper-container {
+        width: 100%;
+        max-width: 400px;
+
+        .swiper {
+            width: 100%;
+        }
+
+        .slide-inner {
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 }

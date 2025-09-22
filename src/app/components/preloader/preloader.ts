@@ -21,7 +21,7 @@ export class Preloader implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.cdr.detectChanges();
-    }, 3300);
+    }, 3200);
   }
 
   percentCounter = () => {
@@ -38,7 +38,7 @@ export class Preloader implements OnInit {
         setTimeout(() => {
           this.showLogo = true;
           this.cdr.detectChanges();
-        }, 500);
+        }, 300);
       }else{
         this.percent = start;
       }
