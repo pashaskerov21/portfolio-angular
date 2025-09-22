@@ -33,18 +33,18 @@ export class App implements OnInit {
     if (this.personalData !== null) {
       // Standard meta tags
       this.titleService.setTitle(this.personalData.title);
-      this.metaService.updateTag({ name: 'description', content: this.personalData.aboutText });
+      this.metaService.updateTag({ name: 'description', content: this.personalData.description });
       this.metaService.updateTag({ name: 'keywords', content: this.personalData.keywords });
       this.metaService.updateTag({ name: 'author', content: this.personalData.author_name });
       // OpenGraph
       this.metaService.updateTag({ property: 'og:title', content: this.personalData.title });
-      this.metaService.updateTag({ property: 'og:description', content: this.personalData.aboutText });
+      this.metaService.updateTag({ property: 'og:description', content: this.personalData.description });
       this.metaService.updateTag({ property: 'og:type', content: 'website' });
       this.metaService.updateTag({ property: 'og:image', content: this.personalData.image });
       // Twitter
       this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
       this.metaService.updateTag({ name: 'twitter:title', content: this.personalData.title });
-      this.metaService.updateTag({ name: 'twitter:description', content: this.personalData.aboutText });
+      this.metaService.updateTag({ name: 'twitter:description', content: this.personalData.description });
       this.metaService.updateTag({ name: 'twitter:image', content: this.personalData.image });
       this.metaService.updateTag({ name: 'twitter:creator', content: this.personalData.author_name });
       // Canonical link

@@ -1,5 +1,6 @@
 export type PersonalInformationDataType = {
     title: string,
+    description: string,
     keywords: string,
     author_name: string,
     author_url: string,
@@ -35,6 +36,12 @@ export type PersonalInformationDataType = {
         degree: string,
         start: string,
         end: string,
+    }[],
+    services: {
+        id: number,
+        title: string,
+        text: string,
+        icon: string,
     }[]
 };
 export type MenuDataType = {
