@@ -9,12 +9,13 @@ import { PersonalInformationDataType } from '../types';
 import { Meta, Title } from '@angular/platform-browser';
 import { SocialIcons } from "./components/social-icons/social-icons";
 import { ScrollButton } from "./components/scroll-button/scroll-button";
+import { Preloader } from "./components/preloader/preloader";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons, ScrollButton],
+  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons, ScrollButton, Preloader],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
