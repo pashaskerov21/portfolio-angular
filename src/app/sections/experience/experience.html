@@ -1,5 +1,29 @@
 <section class="experience-section" aria-labelledby="experience-title" id="experience">
     <div class="container">
         <h2 class="section-title" role="heading" id="experience-title">Experience</h2>
+        <ul class="experience-wrapper">
+            <li *ngFor="let exp of personalData?.experience" class="experience-card">
+                <div class="left">
+                    <div class="left-header">
+                        <h3 class="position">{{exp.position}}</h3>
+                        <div class="date">
+                            {{exp.start}} - {{exp.end}}
+                        </div>
+                    </div>
+                    <div class="left-footer">
+                        <h4 class="company">{{exp.company}}</h4>
+                        <div class="location">{{exp.location}}</div>
+                    </div>
+                </div>
+                <article class="card-body">
+                    <p>{{exp.description}}</p>
+                    <ul>
+                        <li *ngFor="let item of exp.responsibilities">
+                            {{item}}
+                        </li>
+                    </ul>
+                </article>
+            </li>
+        </ul>
     </div>
 </section>
