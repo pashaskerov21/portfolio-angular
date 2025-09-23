@@ -1,0 +1,78 @@
+@use '../../scss/utils' as *;
+@use '../../scss/variables' as *;
+
+.skills-section{
+    padding: 60px 0 0;
+}
+
+.skills-wrapper{
+    width: 100%;
+    @include flex(row,center,center);
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.skill-card{
+    width: 100px;
+    height: 100px;
+    @include flex(column,center,center);
+    gap: 15px;
+    background-color: light-dark($bg-color-mute-light, $bg-color-mute-dark);
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    @media(min-width: 1200px){
+        width: 140px;
+        height: 140px;
+        gap: 20px;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        @media(min-width: 1200px){
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .title{
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        @media(min-width: 1200px){
+            font-size: 14px
+        }
+    }
+    .border{
+        position: absolute;
+        width: 105px;
+        height: 105px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        overflow: hidden;
+        z-index: -1;
+        @include flex(row,center,center);
+        @media(min-width: 1200px){
+            width: 145px;
+            height: 145px;
+        }
+        span{
+            display: block;
+            position: absolute;
+            width: 300px;
+            height: 80px;
+            animation: skillAnimation 6s linear 0s infinite;
+            border-radius: 20px;
+        }
+    }
+}
+
+@keyframes skillAnimation{
+    0%{
+        transform: rotate(0)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}

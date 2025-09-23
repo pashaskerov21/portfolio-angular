@@ -1,1 +1,14 @@
-<p>skills works!</p>
+<section class="skills-section" id="skills" aria-labelledby="skills-title">
+    <div class="container">
+        <h2 class="section-title" id="skills-title">Skills</h2>
+        <ul class="skills-wrapper">
+            <li *ngFor="let skill of skillsData" class="skill-card">
+                <img src="{{skill.logo}}" width="70" height="70" alt="{{skill.title}} logo">
+                <h3 class="title">{{skill.title}}</h3>
+                <div class="border">
+                    <span [style.background-color]="skill.color"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
