@@ -1,2 +1,6 @@
-<app-projects></app-projects>
-<app-services></app-services>
+@if (projectsData.length > 0 && skillsData.length > 0) {
+     <app-projects [projectsData]="projectsData" [skillsData]="skillsData"></app-projects>
+}
+@if (personalData !== null) {
+    <app-services [personalData]="personalData"></app-services>
+}

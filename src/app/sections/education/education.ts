@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PersonalInformationDataType } from '../../../types';
 
 @Component({
   selector: 'app-education',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './education.scss'
 })
 export class Education {
-
+  @Input() personalData: PersonalInformationDataType = {} as PersonalInformationDataType;
 }

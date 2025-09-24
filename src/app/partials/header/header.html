@@ -6,12 +6,12 @@
                     <app-logo firstName="ALIPASHA" lastName=""></app-logo>
                 </a>
                 <ul class="links-wrapper desktop d-none d-lg-flex">
-                    <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
-                        <a [href]="'#'+item.name">{{item.name}}</a>
+                    <li *ngFor="let menu of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
+                        <a [href]="'#'+menu.name">{{menu.name}}</a>
                     </li>
                 </ul>
                 <div class="right">
-                    <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
+                    <a [href]="personalData.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
                         aria-label="Alipasha Askerov CV">CV</a>
                     <button class="theme-button" (click)="toggleTheme()" aria-label="Theme toggle button" type="button">
                         <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
@@ -36,12 +36,11 @@
         <div class="menu-inner">
             <div class="inner-top">
                 <ul class="links-wrapper mobile">
-                    <li *ngFor="let item of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
-                        <a [href]="'#'+item.name" class="menu-link" (click)="toggleMenu()">{{item.name}}</a>
+                    <li *ngFor="let menu of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
+                        <a [href]="'#'+menu.name" class="menu-link" (click)="toggleMenu()">{{menu.name}}</a>
                     </li>
                 </ul>
-                <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"></app-social-icons>
-
+                <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'" [personalData]="personalData"></app-social-icons>
             </div>
             <div class="menu-footer">
                 <div class="footer-row">
@@ -49,7 +48,7 @@
                         <app-logo firstName="ALIPASHA" lastName="" color="#fff"></app-logo>
                     </a>
                     <div class="right">
-                        <a [href]="personalData?.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
+                        <a [href]="personalData.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
                             aria-label="Alipasha Askerov CV">CV</a>
                         <button class="theme-button" (click)="toggleTheme();toggleMenu()"
                             aria-label="Theme toggle button" type="button">

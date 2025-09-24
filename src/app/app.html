@@ -1,11 +1,15 @@
 <h1 class="d-none" style="display: none;">{{title()}}</h1>
-<div class="fix-icons-wrapper d-none d-lg-block">
-    <app-social-icons className="fixed-icons"></app-social-icons>
-</div>
-<app-scroll-button></app-scroll-button>
-<app-header></app-header>
-<main>
-    <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+
+<ng-container *ngIf="personalData && menuData.length > 0">
+    <div class="fix-icons-wrapper d-none d-lg-block">
+        <app-social-icons className="fixed-icons" [personalData]="personalData"></app-social-icons>
+    </div>
+    <app-scroll-button></app-scroll-button>
+    <app-header [menuData]="menuData" [personalData]="personalData"></app-header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+</ng-container>
+
 <app-preloader></app-preloader>

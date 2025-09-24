@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="section-title" id="projects-title">Projects</h2>
         <ul class="projects-wrapper">
-            <li *ngFor="let project of filteredProjectsData" class="project-card">
+            <li *ngFor="let project of projectsData" class="project-card">
                 <figure class="project-img">
                     <img src="{{project.image}}" width="400" height="200" alt="{{project.title}} preview">
                     <div class="layer">
@@ -31,6 +31,8 @@
                 </div>
             </li>
         </ul>
-        <a *ngIf="url!=='/projects'" routerLink="/projects" class="projects-link">See all projects</a>
+        @if (projectsData.length === 6) {
+            <a routerLink="/projects" class="projects-link">See all projects</a>
+        }
     </div>
 </section>

@@ -4,18 +4,19 @@ import { ApiService } from './api/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Header } from "./partials/header/header";
 import { Footer } from "./partials/footer/footer";
-import { ThemeService } from './theme.service';
-import { PersonalInformationDataType } from '../types';
+import { MenuDataType, PersonalInformationDataType } from '../types';
 import { Meta, Title } from '@angular/platform-browser';
 import { SocialIcons } from "./components/social-icons/social-icons";
 import { ScrollButton } from "./components/scroll-button/scroll-button";
 import { Preloader } from "./components/preloader/preloader";
+import { catchError, forkJoin, of } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons, ScrollButton, Preloader],
+  imports: [RouterOutlet, HttpClientModule, Header, Footer, SocialIcons, ScrollButton, Preloader, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -23,13 +24,15 @@ export class App implements OnInit {
   private renderer: Renderer2;
   protected readonly title = signal('Hello, portfolio-angular');
   personalData: PersonalInformationDataType | null = null;
+  menuData: MenuDataType[] = [];
+
 
   constructor(private apiService: ApiService, private titleService: Title, private metaService: Meta, private rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   ngOnInit() {
-    this.loadInformation();
+    this.loadData();
 
     if (this.personalData !== null) {
       // Standard meta tags
@@ -61,15 +64,25 @@ export class App implements OnInit {
     }
   }
 
-  loadInformation() {
-    this.apiService.getInformation().subscribe({
-      next: (data) => {
-        this.personalData = data || null
-      },
-      error: (err) => {
-        console.log('Information fetch failed', err);
-        this.personalData = null;
-      }
-    })
+
+  /** Load all required data in parallel */
+  private loadData(): void {
+    forkJoin({
+      personal: this.apiService.getInformation().pipe(
+        catchError(err => {
+          console.error('Information fetch failed', err);
+          return of(null);
+        })
+      ),
+      menu: this.apiService.getMenu().pipe(
+        catchError(err => {
+          console.error('Skills fetch failed', err);
+          return of([]);
+        })
+      ),
+    }).subscribe(({ personal, menu }) => {
+      this.personalData = personal;
+      this.menuData = menu;
+    });
   }
 }

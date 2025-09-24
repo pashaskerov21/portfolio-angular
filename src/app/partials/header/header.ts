@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
@@ -13,17 +13,13 @@ import { SocialIcons } from "../../components/social-icons/social-icons";
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header implements OnInit {
+export class Header {
 
-  menuData: MenuDataType[] = [];
-  personalData: PersonalInformationDataType | null = null;
-  constructor(private themeService: ThemeService, private apiService: ApiService, private el: ElementRef) { }
+  @Input() personalData: PersonalInformationDataType = {} as PersonalInformationDataType;
+  @Input() menuData: MenuDataType[] = [];
+  constructor(private themeService: ThemeService, private el: ElementRef) { }
 
-  ngOnInit(): void {
-    // datalarin sehife yuklenende fetch edilmesi
-    this.loadMenu();
-    this.loadInformation();
-  }
+
   // tema deyisilmesi
   toggleTheme() {
     this.themeService.toggleTheme();
@@ -31,33 +27,6 @@ export class Header implements OnInit {
   get currentTheme() {
     return this.themeService.getTheme();
   }
-
-
-  // menu datanin fetch edilmesi funksiyasi
-  loadMenu() {
-    this.apiService.getMenu().subscribe({
-      next: (data) => {
-        this.menuData = data || [];
-      },
-      error: (err) => {
-        console.log('Menu fetch failed', err);
-        this.menuData = [];
-      }
-    })
-  }
-  // personal datanin fetch edilmesi funksiyasi
-  loadInformation() {
-    this.apiService.getInformation().subscribe({
-      next: (data) => {
-        this.personalData = data || null
-      },
-      error: (err) => {
-        console.log('Information fetch failed', err);
-        this.personalData = null;
-      }
-    })
-  }
-
 
   // mobil menyunun duyme vasitesile ve asagi yuxari surusdurulerek acilib baglanmasi
   menuState: 'closed' | 'half' | 'full' = 'closed';

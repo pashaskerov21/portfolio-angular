@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="section-title" role="heading" id="services-title">Services</h2>
         <ul class="service-list">
-            <li *ngFor="let service of personalData?.services" class="service-card">
+            <li *ngFor="let service of personalData.services" class="service-card">
                 <i [class]="'icon fa-solid fa-'+service.icon"></i>
                 <h3 class="title">{{service.title}}</h3>
                 <p class="text">{{service.text}}</p>

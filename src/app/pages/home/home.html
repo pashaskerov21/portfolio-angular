@@ -1,6 +1,12 @@
-<app-banner></app-banner>
-<app-about></app-about>
-<app-services></app-services>
-<app-experience></app-experience>
-<app-skills></app-skills>
-<app-projects></app-projects>
+@if (personalData !== null) {
+    <app-banner [personalData]="personalData"></app-banner>
+    <app-about [personalData]="personalData"></app-about>
+    <app-services [personalData]="personalData"></app-services>
+    <app-experience [personalData]="personalData"></app-experience>
+}
+@if (skillsData.length > 0) {
+    <app-skills [skillsData]="skillsData"></app-skills>
+}
+@if (projectsData.length > 0 && skillsData.length > 0) {
+     <app-projects [projectsData]="projectsData.slice(0,6)" [skillsData]="skillsData"></app-projects>
+}

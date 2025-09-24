@@ -9,25 +9,8 @@ import { NgClass } from '@angular/common';
   templateUrl: './social-icons.html',
   styleUrl: './social-icons.scss'
 })
-export class SocialIcons implements OnInit {
+export class SocialIcons {
   @Input() className: string = '';
   @Input() menuOpen?: boolean;
-  personalData: PersonalInformationDataType | null = null;
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
-    this.loadInformation();
-  }
-
-  loadInformation() {
-    this.apiService.getInformation().subscribe({
-      next: (data) => {
-        this.personalData = data || null
-      },
-      error: (err) => {
-        console.log('Information fetch failed', err);
-        this.personalData = null;
-      }
-    })
-  }
+  @Input() personalData: PersonalInformationDataType = {} as PersonalInformationDataType;
 }

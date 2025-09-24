@@ -3,10 +3,10 @@
         <h2 class="section-title" role="heading" id="about-title">About me</h2>
         <div class="about-wrapper">
             <figure>
-                <img src="{{personalData?.image}}" alt='Alipasha Askerov - Full stack Developer'>
+                <img [src]="personalData.image" alt='Alipasha Askerov - Full stack Developer'>
             </figure>
             <div class="wrapper-right">
-                <article aria-labelledby="about-title" [innerHTML]="personalData?.aboutText">
+                <article aria-labelledby="about-title" [innerHTML]="personalData.aboutText">
                     
                 </article>
                 <ul class="reports">
@@ -18,8 +18,8 @@
                     </li>
                 </ul>
                 <div class="about-content-items">
-                    <a href="{{personalData?.cv}}" target="_blank" rel="noopener noreferrer" class="cv-button">Review CV</a>
-                    <app-social-icons className="about-icons"></app-social-icons>
+                    <a [href]="personalData.cv" target="_blank" rel="noopener noreferrer" class="cv-button">Review CV</a>
+                    <app-social-icons className="about-icons" [personalData]="personalData"></app-social-icons>
                 </div>
             </div>
         </div>
