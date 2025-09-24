@@ -3,7 +3,6 @@ import { PersonalInformationDataType } from '../../../types';
 import { ApiService } from '../../api/api';
 import SwiperCore, { Swiper } from 'swiper';
 import { EffectCube } from 'swiper/modules';
-
 import { register } from 'swiper/element/bundle';
 
 register();

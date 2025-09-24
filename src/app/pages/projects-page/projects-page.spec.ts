@@ -1,20 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollButton } from './scroll-button';
+import { ProjectsPage } from './projects-page';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('ScrollButton', () => {
-  let component: ScrollButton;
-  let fixture: ComponentFixture<ScrollButton>;
+describe('ProjectsPage', () => {
+  let component: ProjectsPage;
+  let fixture: ComponentFixture<ProjectsPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrollButton],
+      imports: [ProjectsPage,HttpClientTestingModule],
       providers: [provideZonelessChangeDetection()]
     })
-      .compileComponents();
+    .compileComponents();
 
-    fixture = TestBed.createComponent(ScrollButton);
+    fixture = TestBed.createComponent(ProjectsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Page404 } from './page404';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('Page404', () => {
   let component: Page404;
@@ -8,7 +9,8 @@ describe('Page404', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Page404]
+      imports: [Page404],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

@@ -29,6 +29,13 @@ app-root {
         right: 10px;
         transform: translateY(-50%);
     }
+    app-scroll-button{
+        position: fixed;
+    }
+    app-preloader{
+        position: fixed;
+        z-index: 99999;
+    }
 }
 
 :root.light {
@@ -46,7 +53,6 @@ html {
 
 body {
     width: 100%;
-
     font-size: 16px;
     font-family: $secondary-font;
     scroll-behavior: smooth;
@@ -135,6 +141,7 @@ input {
 
 main {
     width: 100%;
+    padding-bottom: 60px;
 }
 section{
     width: 100%;

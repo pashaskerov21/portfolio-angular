@@ -21,7 +21,7 @@ import { Preloader } from "./components/preloader/preloader";
 })
 export class App implements OnInit {
   private renderer: Renderer2;
-  protected readonly title = signal('Alipasha Askerov | Portfolio');
+  protected readonly title = signal('Hello, portfolio-angular');
   personalData: PersonalInformationDataType | null = null;
 
   constructor(private apiService: ApiService, private titleService: Title, private metaService: Meta, private rendererFactory: RendererFactory2) {

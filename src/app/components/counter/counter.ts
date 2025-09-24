@@ -31,7 +31,6 @@ export class Counter {
       this.counterStatus = true;
       this.startCounter();
     }
-
   }
 
   startCounter() {
