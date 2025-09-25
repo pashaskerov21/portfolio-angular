@@ -19,7 +19,7 @@
                 </ul>
                 <div class="about-content-items">
                     <a [href]="personalData.cv" target="_blank" rel="noopener noreferrer" class="cv-button">Review CV</a>
-                    <app-social-icons className="about-icons" [personalData]="personalData"></app-social-icons>
+                    <app-social-icons *ngIf="personalData.social" className="about-icons" [personalData]="personalData"></app-social-icons>
                 </div>
             </div>
         </div>

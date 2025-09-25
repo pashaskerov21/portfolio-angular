@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { PersonalInformationDataType } from '../../../types';
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-social-icons',
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './social-icons.html',
   styleUrl: './social-icons.scss'
 })

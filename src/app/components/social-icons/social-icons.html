@@ -1,14 +1,20 @@
-<ul class="social-icons" [ngClass]="className" [class.menu-active]="menuOpen">
-    <li>
-        <a [href]="personalData.social.github" target="_blank" rel="noopener noreferrer" aria-label="Github Account"><i class="fa-brands fa-github"></i></a>
-    </li>
-    <li>
-        <a [href]="personalData.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="Linkedin Account"><i class="fa-brands fa-linkedin-in"></i></a>
-    </li>
-    <li>
-        <a [href]="personalData.social.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Whattsapp Number"><i class="fa-brands fa-whatsapp"></i></a>
-    </li>
-    <li>
-        <a [href]="'mailto:'+personalData.social.mail" target="_blank" rel="noopener noreferrer" aria-label="Mail"><i class="fa-solid fa-envelope"></i></a>
-    </li>
-</ul>
+<ng-container *ngIf="personalData.social">
+    <ul class="social-icons" [ngClass]="className" [class.menu-active]="menuOpen">
+        <li>
+            <a [href]="personalData.social.github" target="_blank" rel="noopener noreferrer"
+                aria-label="Github Account"><i class="fa-brands fa-github"></i></a>
+        </li>
+        <li>
+            <a [href]="personalData.social.linkedin" target="_blank" rel="noopener noreferrer"
+                aria-label="Linkedin Account"><i class="fa-brands fa-linkedin-in"></i></a>
+        </li>
+        <li>
+            <a [href]="personalData.social.whatsapp" target="_blank" rel="noopener noreferrer"
+                aria-label="Whattsapp Number"><i class="fa-brands fa-whatsapp"></i></a>
+        </li>
+        <li>
+            <a [href]="'mailto:'+personalData.social.mail" target="_blank" rel="noopener noreferrer"
+                aria-label="Mail"><i class="fa-solid fa-envelope"></i></a>
+        </li>
+    </ul>
+</ng-container>

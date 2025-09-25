@@ -2,10 +2,11 @@ import { Component, Input } from '@angular/core';
 import { PersonalInformationDataType } from '../../../types';
 import { Counter } from "../../components/counter/counter";
 import { SocialIcons } from "../../components/social-icons/social-icons";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-about',
-  imports: [Counter, SocialIcons],
+  imports: [Counter, SocialIcons, NgIf],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })

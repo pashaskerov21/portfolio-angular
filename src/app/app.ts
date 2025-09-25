@@ -23,7 +23,7 @@ import { NgIf } from '@angular/common';
 export class App implements OnInit {
   private renderer: Renderer2;
   protected readonly title = signal('Hello, portfolio-angular');
-  personalData: PersonalInformationDataType | null = null;
+  personalData: PersonalInformationDataType = {} as PersonalInformationDataType;
   menuData: MenuDataType[] = [];
 
 
@@ -71,7 +71,7 @@ export class App implements OnInit {
       personal: this.apiService.getInformation().pipe(
         catchError(err => {
           console.error('Information fetch failed', err);
-          return of(null);
+          return of({} as PersonalInformationDataType);
         })
       ),
       menu: this.apiService.getMenu().pipe(

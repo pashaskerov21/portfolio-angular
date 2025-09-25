@@ -40,7 +40,7 @@
                         <a [href]="'#'+menu.name" class="menu-link" (click)="toggleMenu()">{{menu.name}}</a>
                     </li>
                 </ul>
-                <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'" [personalData]="personalData"></app-social-icons>
+                <app-social-icons *ngIf="personalData.social" className="menu-icons" [menuOpen]="menuState !== 'closed'" [personalData]="personalData"></app-social-icons>
             </div>
             <div class="menu-footer">
                 <div class="footer-row">

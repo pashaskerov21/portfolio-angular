@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="personalData && personalData !== null && menuData.length > 0">
     <div class="fix-icons-wrapper d-none d-lg-block">
-        <app-social-icons className="fixed-icons" [personalData]="personalData"></app-social-icons>
+        <app-social-icons *ngIf="personalData.social" className="fixed-icons" [personalData]="personalData"></app-social-icons>
     </div>
     <app-scroll-button></app-scroll-button>
     <app-header [menuData]="menuData" [personalData]="personalData"></app-header>
