@@ -1,4 +1,4 @@
-<ng-container *ngIf="personalData.social">
+@if(personalData.social){
     <ul class="social-icons" [ngClass]="className" [class.menu-active]="menuOpen">
         <li>
             <a [href]="personalData.social.github" target="_blank" rel="noopener noreferrer"
@@ -17,4 +17,4 @@
                 aria-label="Mail"><i class="fa-solid fa-envelope"></i></a>
         </li>
     </ul>
-</ng-container>
+}

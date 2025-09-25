@@ -2,13 +2,13 @@ import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 import { RouterLink } from '@angular/router';
 import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { MenuDataType, PersonalInformationDataType } from '../../../types';
 import { SocialIcons } from "../../components/social-icons/social-icons";
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Logo, NgIf, NgFor, SocialIcons],
+  imports: [RouterLink, Logo, NgFor, SocialIcons],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

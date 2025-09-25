@@ -55,6 +55,7 @@
             border: 1px solid light-dark($text-color-light, $text-color-dark);
             padding: 12px 20px;
             border-radius: 10px;
+            background-color: light-dark($bg-color-light, $bg-color-dark);
 
             &:focus {
                 ~label {

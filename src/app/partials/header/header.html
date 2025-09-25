@@ -28,7 +28,7 @@
         </div>
         <div class="header-progress" *ngIf="fixedTop" [style.width]="scrollValue+'%'"></div>
     </nav>
-    
+
     <div class="mobile-menu d-lg-none" [class.active]="menuState==='half'" [class.full-height]="menuState==='full'"
         [class.hide]="menuState==='closed'" (touchstart)="onDragStart($event)" (touchmove)="onDragMove($event)"
         (touchend)="onDragEnd($event)">
@@ -40,7 +40,10 @@
                         <a [href]="'#'+menu.name" class="menu-link" (click)="toggleMenu()">{{menu.name}}</a>
                     </li>
                 </ul>
-                <app-social-icons *ngIf="personalData.social" className="menu-icons" [menuOpen]="menuState !== 'closed'" [personalData]="personalData"></app-social-icons>
+                @if(personalData.social){
+                <app-social-icons className="menu-icons" [menuOpen]="menuState !== 'closed'"
+                    [personalData]="personalData"></app-social-icons>
+                }
             </div>
             <div class="menu-footer">
                 <div class="footer-row">
