@@ -1,6 +1,6 @@
 <h1 class="d-none" style="display: none;">{{title()}}</h1>
 
-<ng-container *ngIf="personalData && menuData.length > 0">
+<ng-container *ngIf="personalData && personalData !== null && menuData.length > 0">
     <div class="fix-icons-wrapper d-none d-lg-block">
         <app-social-icons className="fixed-icons" [personalData]="personalData"></app-social-icons>
     </div>

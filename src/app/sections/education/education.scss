@@ -1,0 +1,73 @@
+@use '../../scss/utils' as *;
+@use '../../scss/variables' as *;
+
+.education-section{
+    padding: 60px 0;
+}
+
+.edu-wrapper{
+    width: 100%;
+    @include flex(column,center,center);
+    gap: 30px;
+    .edu-card{
+        width: 100%;
+        max-width: 1000px;
+        border-radius: 10px;
+        border: 1px solid $primary-color;
+        padding: 20px;
+        @include flex(column,center,center);
+        gap: 30px;
+        position: relative;
+        .score{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 10px;
+            padding: 6px;
+            background-color: $primary-color;
+            color: #fff;
+            font-size: 10px;
+            @media (min-width: 992px){
+                font-size: 12px;
+            }
+        }
+        .card-header{
+            width: 100%;
+            @include flex(row,flex-start,center);
+            gap: 10px;
+            i{
+                color: $primary-color;
+                font-size: 24px;
+            }
+            .title{
+                font-size: 20px;
+                font-family: $primary-font;
+            }
+        }
+        .card-text{
+            width: 100%;
+            @include flex(column,center,flex-start);
+            font-family: $primary-font;
+            gap: 10px;
+            span{
+                color: $primary-color;
+                font-weight: 600;
+            }
+        }
+        .card-footer{
+            width: 100%;
+            @include flex(row,space-between,center);
+            gap: 10px;
+            .edu-degree, .edu-date{
+                padding: 8px;
+                border-radius: 10px;
+                font-weight: 600;
+                background-color: $primary-color;
+                color: #FFF;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 10px;
+            }
+        }
+    }
+}

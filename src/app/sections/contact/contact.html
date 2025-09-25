@@ -1,1 +1,28 @@
-<p>contact works!</p>
+<section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <form class="contact-form" (submit)="formSubmit($event)" novalidate>
+            <div class="form-item">
+                <input type="text" id="fullname" name="fullname" [(ngModel)]="fullName" [class.invalid]="submitted && fullName === ''">
+                <label for="fullname" [class.active]="fullName !== ''">Fullname <span *ngIf="submitted && fullName === ''">- is required*</span></label>
+            </div>
+            <div class="form-item">
+                <input type="email" id="email" name="email" [(ngModel)]="email" [class.invalid]="submitted && (email === '' || emailStatus)">
+                <label for="email" [class.active]="email !== ''">
+                    Email&nbsp;
+                    <span *ngIf="submitted && email === ''">- is required*</span>
+                    <span *ngIf="submitted && emailStatus">- invalid email</span>
+                </label>
+            </div>
+            <div class="form-item full-w">
+                <textarea name="message" id="message" [(ngModel)]="message" [class.invalid]="submitted && message === ''"></textarea>
+                <label for="message" [class.active]="message !== ''">Message <span *ngIf="submitted && message === ''">- is required*</span></label>
+            </div>
+            <button type="submit" class="submit-button">
+                <span *ngIf="btnDefault" class="text">send</span>
+                <span *ngIf="btnLoading" class="loader"></span>
+                <i *ngIf="btnSuccess" class="fa-solid fa-check"></i>
+            </button>
+        </form>
+    </div>
+</section>

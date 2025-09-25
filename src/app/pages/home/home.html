@@ -10,3 +10,7 @@
 @if (projectsData.length > 0 && skillsData.length > 0) {
      <app-projects [projectsData]="projectsData.slice(0,6)" [skillsData]="skillsData"></app-projects>
 }
+@if (personalData !== null) {
+    <app-education [personalData]="personalData"></app-education>
+}
+<app-contact></app-contact>

@@ -36,6 +36,7 @@ export type PersonalInformationDataType = {
         degree: string,
         start: string,
         end: string,
+        score: number
     }[],
     services: {
         id: number,
@@ -51,12 +52,9 @@ export type MenuDataType = {
 export type ProjectDataType = {
     title: string,
     image: string,
-    previewStatus: boolean,
-    githubStatus: boolean,
-    home: boolean,
     category: number,
-    previewLink: string,
-    githubLink: string,
+    previewLink: string | null,
+    githubLink: string | null,
     skills: string[],
 };
 export type SkillDataType = {

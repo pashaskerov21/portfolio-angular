@@ -2,8 +2,7 @@ import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 import { RouterLink } from '@angular/router';
 import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
-import { ApiService } from '../../api/api';
+import { NgFor, NgIf } from '@angular/common';
 import { MenuDataType, PersonalInformationDataType } from '../../../types';
 import { SocialIcons } from "../../components/social-icons/social-icons";
 

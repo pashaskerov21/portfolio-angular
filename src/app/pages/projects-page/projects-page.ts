@@ -19,8 +19,10 @@ export class ProjectsPage {
 
   ngOnInit(): void {
     const data = this.route.snapshot.data['data'];
-    this.personalData = data.personal;
-    this.skillsData = data.skills;
-    this.projectsData = data.projects;
+    if (data) {
+      this.personalData = data.personal;
+      this.skillsData = data.skills;
+      this.projectsData = data.projects;
+    }
   }
 }

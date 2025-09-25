@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { PersonalInformationDataType } from '../../../types';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-education',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './education.html',
   styleUrl: './education.scss'
 })

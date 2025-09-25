@@ -16,7 +16,7 @@ export const resolverData: ResolveFn<ResolvedData> = () => {
 
   return forkJoin({
     personal: apiService.getInformation().pipe(
-      catchError(() => of(null))
+      catchError(() => of({} as PersonalInformationDataType))
     ),
     skills: apiService.getSkills().pipe(
       catchError(() => of([]))

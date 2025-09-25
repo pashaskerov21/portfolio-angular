@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from '../../api/api';
+import { Component, Input } from '@angular/core';
 import { PersonalInformationDataType } from '../../../types';
 import { NgClass } from '@angular/common';
 
