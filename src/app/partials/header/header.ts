@@ -1,14 +1,14 @@
-import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MenuDataType, PersonalInformationDataType } from '../../../types';
 import { SocialIcons } from "../../components/social-icons/social-icons";
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Logo, NgFor, SocialIcons],
+  imports: [RouterLink, Logo, NgFor, SocialIcons, NgIf],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, RendererFactory2, signal } from '@angular/core';
+import { Component, DOCUMENT, Inject, OnInit, PLATFORM_ID, Renderer2, RendererFactory2, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './api/api';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +27,13 @@ export class App implements OnInit {
   menuData: MenuDataType[] = [];
 
 
-  constructor(private apiService: ApiService, private titleService: Title, private metaService: Meta, private rendererFactory: RendererFactory2) {
+  constructor(
+    private apiService: ApiService,
+    private titleService: Title,
+    private metaService: Meta,
+    private rendererFactory: RendererFactory2,
+    @Inject(DOCUMENT) private document: Document,
+  ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
@@ -55,12 +61,12 @@ export class App implements OnInit {
       const canonicalLink: HTMLLinkElement = this.renderer.createElement('link');
       canonicalLink.setAttribute('rel', 'canonical');
       canonicalLink.setAttribute('href', `${this.personalData.author_url}`);
-      this.renderer.appendChild(document.head, canonicalLink);
+      this.document.head.appendChild(canonicalLink);
       // Author link
       const authorLink: HTMLLinkElement = this.renderer.createElement('link');
       authorLink.setAttribute('rel', 'author');
       authorLink.setAttribute('href', `${this.personalData.author_url}`);
-      this.renderer.appendChild(document.head, authorLink);
+      this.document.head.appendChild(authorLink);
     }
   }
 
