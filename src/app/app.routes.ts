@@ -18,5 +18,10 @@ export const routes: Routes = [
     {
         path: '404',
         component: Page404,
+    },
+    {
+        path: '**',
+        redirectTo: '404',
+        pathMatch: 'full'
     }
 ];

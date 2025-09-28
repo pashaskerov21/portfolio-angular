@@ -1,5 +1,5 @@
 <div class="preloader" [class.hide]="!loading">
-    <div class="logo-wrapper" [class.show]="showLogo">
+    <div class="logo-item" [class.show]="showLogo">
         <app-logo firstName="Alipasha" lastName="Askerov"></app-logo>
     </div>
     <div class="percent" [class.complete]="percent===100" [class.hide]="showLogo" [style.background]="`conic-gradient(#B52E31 `+percent+`%, #fff `+percent+`%`">
