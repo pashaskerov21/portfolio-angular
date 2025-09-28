@@ -3,6 +3,10 @@
 
 .social-icons {
     &.fixed-icons {
+        position: fixed;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
         @include flex(column, center, center);
         gap: 8px;
 
@@ -25,19 +29,19 @@
             }
 
             &:nth-child(1) {
-                animation: iconAnimation 0.5s ease 0.2s forwards;
+                animation: socialIconAnimation 0.5s ease 3.6s forwards;
             }
 
             &:nth-child(2) {
-                animation: iconAnimation 0.5s ease 0.4s forwards;
+                animation: socialIconAnimation 0.5s ease 3.8s forwards;
             }
 
             &:nth-child(3) {
-                animation: iconAnimation 0.5s ease 0.6s forwards;
+                animation: socialIconAnimation 0.5s ease 4.0s forwards;
             }
 
             &:nth-child(4) {
-                animation: iconAnimation 0.5s ease 0.8s forwards;
+                animation: socialIconAnimation 0.5s ease 4.2s forwards;
             }
         }
     }
@@ -60,19 +64,19 @@
         &.menu-active {
             li {
                 &:nth-child(1) {
-                    animation: iconAnimation 0.5s ease 0.4s forwards;
+                    animation: socialIconAnimation 0.5s ease 0.4s forwards;
                 }
 
                 &:nth-child(2) {
-                    animation: iconAnimation 0.5s ease 0.6s forwards;
+                    animation: socialIconAnimation 0.5s ease 0.6s forwards;
                 }
 
                 &:nth-child(3) {
-                    animation: iconAnimation 0.5s ease 0.8s forwards;
+                    animation: socialIconAnimation 0.5s ease 0.8s forwards;
                 }
 
                 &:nth-child(4) {
-                    animation: iconAnimation 0.5s ease 1s forwards;
+                    animation: socialIconAnimation 0.5s ease 1s forwards;
                 }
             }
         }
@@ -106,8 +110,8 @@
     }
 }
 
-@keyframes iconAnimation {
-    100% {
+@keyframes socialIconAnimation {
+    0% {
         opacity: 0;
         transform: scale(0);
     }

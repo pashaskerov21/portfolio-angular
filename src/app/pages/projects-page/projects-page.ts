@@ -4,10 +4,11 @@ import { PersonalInformationDataType, ProjectDataType, SkillDataType } from '../
 import { Services } from "../../sections/services/services";
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Contact } from "../../sections/contact/contact";
 
 @Component({
   selector: 'app-projects-page',
-  imports: [Projects, Services],
+  imports: [Projects, Services, Contact],
   templateUrl: './projects-page.html',
   styleUrl: './projects-page.scss'
 })

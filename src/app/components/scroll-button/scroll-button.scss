@@ -23,6 +23,7 @@
     }
     &:hover{
         animation: pulsePrimary 1s ease infinite;
+        border-color: $primary-color;
     }
 }
 @keyframes borderRotate{

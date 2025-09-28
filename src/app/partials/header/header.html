@@ -13,6 +13,24 @@
                 <div class="right">
                     <a [href]="personalData.cv" target="_blank" rel="noopener noreferrer" class="link-btn"
                         aria-label="Alipasha Askerov CV">CV</a>
+                    <div class="version-dropdown">
+                        <div class="active-version angular">
+                            <img src="/design/angular-logo.png" width="16" height="16" alt="Version Angular">
+                        </div>
+                        <ul class="version-menu">
+                            <li>
+                                <a href="https://alipashaskerov.vercel.app/">
+                                    <img [src]="currentTheme === 'dark' ? '/design/next-js-2.svg' : '/design/next-js.svg'"
+                                        width="16" height="16" alt="Version Next">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://alipashaskerov3.vercel.app/">
+                                    <img src="/design/vue-logo.png" width="16" height="16" alt="Version Vue">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <button class="theme-button" (click)="toggleTheme()" aria-label="Theme toggle button" type="button">
                         <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>
                         <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
