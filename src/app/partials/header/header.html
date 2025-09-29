@@ -7,7 +7,7 @@
                 </a>
                 <ul class="links-wrapper desktop d-none d-lg-flex">
                     <li *ngFor="let menu of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
-                        <a [href]="'#'+menu.name">{{menu.name}}</a>
+                        <a [href]="'#'+menu.name" appScrollTo="#{{menu.name}}">{{menu.name}}</a>
                     </li>
                 </ul>
                 <div class="right">
@@ -55,7 +55,7 @@
             <div class="inner-top">
                 <ul class="links-wrapper mobile">
                     <li *ngFor="let menu of menuData; let i = index" [style.animation-delay]="i*0.1+0.3+'s'">
-                        <a [href]="'#'+menu.name" class="menu-link" (click)="toggleMenu()">{{menu.name}}</a>
+                        <a [href]="'#'+menu.name" class="menu-link" (click)="toggleMenu()" appScrollTo="#{{menu.name}}">{{menu.name}}</a>
                     </li>
                 </ul>
                 <app-social-icons *ngIf="personalData.social" className="menu-icons" [menuOpen]="menuState !== 'closed'"

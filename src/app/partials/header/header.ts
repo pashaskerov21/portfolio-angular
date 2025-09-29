@@ -5,10 +5,11 @@ import { ThemeService } from '../../theme.service';
 import { NgFor, NgIf } from '@angular/common';
 import { MenuDataType, PersonalInformationDataType } from '../../../types';
 import { SocialIcons } from "../../components/social-icons/social-icons";
+import { ScrollToDirective } from "./scroll-to.directive";
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Logo, NgFor, SocialIcons, NgIf],
+  imports: [RouterLink, Logo, NgFor, SocialIcons, NgIf, ScrollToDirective],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
