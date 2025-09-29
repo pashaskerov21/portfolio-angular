@@ -3,10 +3,7 @@
 
 .social-icons {
     &.fixed-icons {
-        position: fixed;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
+        
         @include flex(column, center, center);
         gap: 8px;
 
