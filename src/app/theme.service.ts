@@ -4,7 +4,7 @@ import { Inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2 } from "@a
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
     private renderer: Renderer2;
-    private currentTheme: 'light' | 'dark' = 'light';
+    private currentTheme: 'light' | 'dark' = 'dark';
     private isBrowser: boolean;
 
     constructor(
