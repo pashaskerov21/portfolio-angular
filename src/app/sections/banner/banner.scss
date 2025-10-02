@@ -78,12 +78,20 @@
             border: 1px solid $primary-color;
             padding: 20px;
             border-radius: 10px;
+            transition: all 0.3s;
             @media (min-width: 992px){
                 text-align: start;
                 align-items: flex-start;
             }
             h3{
                 color: $primary-color;
+            }
+            &:hover{
+                background-color: $primary-color;
+                color: #fff;
+                h3{
+                    color: #fff;
+                }
             }
             
         }
