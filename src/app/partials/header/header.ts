@@ -1,5 +1,4 @@
 import { Component, ElementRef, HostListener, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { Logo } from "../../components/logo/logo";
 import { ThemeService } from '../../theme.service';
 import { NgFor, NgIf } from '@angular/common';
@@ -9,7 +8,7 @@ import { ScrollToDirective } from "./scroll-to.directive";
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Logo, NgFor, SocialIcons, NgIf, ScrollToDirective],
+  imports: [Logo, NgFor, SocialIcons, NgIf, ScrollToDirective],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

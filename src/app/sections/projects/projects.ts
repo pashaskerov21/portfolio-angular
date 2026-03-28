@@ -1,11 +1,10 @@
 import { Component, Input} from '@angular/core';
 import { ProjectDataType, SkillDataType } from '../../../types';
 import { NgFor, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
-  imports: [NgFor, RouterLink, NgIf],
+  imports: [NgFor, NgIf],
   templateUrl: './projects.html',
   styleUrl: './projects.scss'
 })
