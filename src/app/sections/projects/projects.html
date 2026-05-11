@@ -7,7 +7,7 @@
                     <img src="{{project.image}}" width="400" height="200" alt="{{project.title}} preview">
                     <div class="layer">
                         <div class="badge">
-                            {{getCategoryName(project.category)}}
+                            {{project.category}}
                         </div>
                         <ul class="project-skills">
                             <li *ngFor="let skill of getProjectSkills(project.skills);let i = index" class="skill-logo"

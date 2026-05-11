@@ -22,18 +22,4 @@ export class Projects {
     }
     return [];
   }
-
-  //category name
-  getCategoryName(id: number): string {
-    switch (id) {
-      case 1:
-        return 'fullstack';
-      case 2:
-        return 'frontend';
-      case 3:
-        return 'backend';
-      default:
-        return 'frontend';
-    }
-  }
 }
